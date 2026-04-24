@@ -11,6 +11,7 @@ public class StickerGiver : MonoBehaviour
     [SerializeField] GameObject afterMRISticker;
     [SerializeField] GameObject sortingGameSticker;
     [SerializeField] GameObject QNASticker;
+    [SerializeField] GameObject quizSticker;
     void Start()
     {
         
@@ -21,23 +22,41 @@ public class StickerGiver : MonoBehaviour
     {
         switch (sticker)
         {
-            case "hallwaySticker":
-                hallwaySticker.SetActive(true); break;
+            case "HallwaySticker":
+                hallwaySticker.SetActive(true);
+                hallwaySticker.GetComponent<StickerAnimationScript>().GiveSticker("Lobby", true);
+                break;
 
-            case "cannulationSticker":
-                cannulationSticker.SetActive(true); break;
+            case "CannulationSticker":
+                cannulationSticker.SetActive(true);
+                cannulationSticker.GetComponent<StickerAnimationScript>().GiveSticker("Hallway 2", true);
+                break;
 
-            case "beforeMRISticker":
-                beforeMRISticker.SetActive(true); break;
+            case "BeforeMRISticker":
+                beforeMRISticker.SetActive(true);
+                beforeMRISticker.GetComponent<StickerAnimationScript>().GiveSticker("MRI_Room3", true);
+                break;
 
-            case "afterMRISticker":
-                afterMRISticker.SetActive(true); break;
+            case "AfterMRISticker":
+                afterMRISticker.SetActive(true);
+                afterMRISticker.GetComponent<StickerAnimationScript>().GiveSticker("End", true);
+                break;
 
-            case "sortingGameSticker":
-                sortingGameSticker.SetActive(true); break;
+            case "SortingGameSticker":
+                sortingGameSticker.SetActive(true);
+                sortingGameSticker.GetComponent<StickerAnimationScript>().GiveSticker("Lobby", true);
+                break;
 
             case "QNASticker":
-                QNASticker.SetActive(true); break;
+                QNASticker.SetActive(true); 
+                QNASticker.GetComponent<StickerAnimationScript>().GiveSticker("Lobby", true);
+                break;
+
+            case "QuizSticker":
+                quizSticker.SetActive(true);
+                quizSticker.GetComponent<StickerAnimationScript>().GiveSticker("Lobby", true);
+                break;
+
 
             default:
                 Debug.Log("Incorrect string in GiveSticker");

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ReferencePass : MonoBehaviour
 {
@@ -15,5 +17,18 @@ public class ReferencePass : MonoBehaviour
     public GameObject GetPass()
     {
         return stickerPass;
+    }
+
+    public void Update()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Lobby")
+        {
+            stickerPass.SetActive(true);
+        }
     }
 }
